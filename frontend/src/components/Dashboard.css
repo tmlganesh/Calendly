@@ -1,0 +1,248 @@
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-secondary);
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 320px;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.sidebar-header {
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.sidebar-header .logo-icon {
+    font-size: 1.75rem;
+}
+
+.sidebar-header .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.create-btn {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    gap: var(--spacing-sm);
+}
+
+.create-btn span {
+    font-size: 1.25rem;
+}
+
+.sidebar-section {
+    flex: 1;
+}
+
+.sidebar-section h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Main Content */
+.dashboard-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-left h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.view-toggle {
+    display: flex;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 4px;
+}
+
+.toggle-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.toggle-btn:hover {
+    color: var(--text-primary);
+}
+
+.toggle-btn.active {
+    background: var(--bg-primary);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.dark-mode-btn {
+    font-size: 1.25rem;
+    padding: var(--spacing-sm);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Calendar Container */
+.calendar-container {
+    flex: 1;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    gap: var(--spacing-md);
+    color: var(--text-muted);
+}
+
+/* Event List in Sidebar */
+.sidebar-section .event-list {
+    gap: var(--spacing-sm);
+}
+
+.sidebar-section .event-card {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+}
+
+.sidebar-section .event-card-title {
+    font-size: 0.9rem;
+}
+
+.sidebar-section .event-card-time {
+    font-size: 0.8rem;
+}
+
+.sidebar-section .event-card-actions {
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.sidebar-section .event-card:hover .event-card-actions {
+    opacity: 1;
+}
+
+.sidebar-section .event-list-empty {
+    padding: var(--spacing-lg);
+}
+
+.sidebar-section .event-list-empty-icon {
+    font-size: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .sidebar-section {
+        display: none;
+    }
+
+    .dashboard-header {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    .header-left {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-header {
+        padding: var(--spacing-md);
+    }
+
+    .header-left h1 {
+        font-size: 1.125rem;
+    }
+
+    .view-toggle {
+        flex: 1;
+    }
+
+    .toggle-btn {
+        flex: 1;
+        text-align: center;
+        padding: var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+
+    .user-email {
+        display: none;
+    }
+
+    .calendar-container {
+        padding: var(--spacing-sm);
+    }
+}
