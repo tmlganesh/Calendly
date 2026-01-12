@@ -175,8 +175,7 @@
 }
 
 .sidebar-section .event-card-actions {
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+    opacity: 1;
 }
 
 .sidebar-section .event-card:hover .event-card-actions {
