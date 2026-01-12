@@ -24,15 +24,31 @@ const EventCard = ({ event, onEdit, onDelete }) => {
             <div className="event-card-header">
                 <h4 className="event-card-title">{event.title}</h4>
                 <div className="event-card-actions">
-                    <button onClick={() => onEdit(event)} title="Edit">
-                        ✏️
+                    <button
+                        type="button"
+                        className="edit-btn"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onEdit(event);
+                        }}
+                    >
+                        Edit
                     </button>
                     <button
+                        type="button"
                         className="delete-btn"
-                        onClick={() => onDelete(event.id)}
-                        title="Delete"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            console.log('EventCard Delete clicked, event.id:', event.id);
+                            if (onDelete) {
+                                onDelete(event.id);
+                            } else {
+                                console.error('onDelete is not defined');
+                            }
+                        }}
                     >
-                        🗑️
+                        Delete
                     </button>
                 </div>
             </div>

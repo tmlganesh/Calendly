@@ -89,12 +89,15 @@ export const useEvents = () => {
     }, [fetchTodayEvents, fetchUpcomingEvents]);
 
     const deleteEvent = useCallback(async (id) => {
+        console.log('useEvents.deleteEvent called with id:', id);
         try {
             await eventsAPI.delete(id);
+            console.log('API delete successful, updating local state');
             setEvents(prev => prev.filter(e => e.id !== id));
             await fetchTodayEvents();
             await fetchUpcomingEvents();
         } catch (err) {
+            console.error('useEvents.deleteEvent error:', err);
             throw err;
         }
     }, [fetchTodayEvents, fetchUpcomingEvents]);

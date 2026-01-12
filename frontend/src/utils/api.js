@@ -118,11 +118,17 @@ export const eventsAPI = {
     },
 
     delete: async (id) => {
+        console.log('eventsAPI.delete called with id:', id);
         const response = await fetch(`${API_URL}/events/${id}`, {
             method: 'DELETE',
             headers: getAuthHeaders(),
         });
-        if (!response.ok) throw new Error('Failed to delete event');
+        console.log('Delete response status:', response.status);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Delete failed:', errorText);
+            throw new Error('Failed to delete event');
+        }
         return true;
     },
 };

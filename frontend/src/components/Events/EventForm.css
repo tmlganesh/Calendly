@@ -31,7 +31,7 @@
 
 .modal-header h2 {
     font-size: 1.5rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-family);
 }
 
 .close-btn {
@@ -68,6 +68,8 @@
 .event-form textarea,
 .event-form select {
     font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--bg-primary);
 }
 
 .event-form textarea {
@@ -131,28 +133,31 @@
 
 .event-card-actions {
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
 }
 
 .event-card-actions button {
-    background: none;
-    border: none;
-    padding: 4px 8px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
     cursor: pointer;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     transition: all var(--transition-fast);
 }
 
-.event-card-actions button:hover {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+.event-card-actions .edit-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 .event-card-actions .delete-btn:hover {
     background: #fce8e6;
     color: var(--danger);
+    border-color: var(--danger);
 }
 
 .event-card-time {

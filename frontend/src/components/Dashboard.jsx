@@ -54,12 +54,29 @@ const Dashboard = () => {
     };
 
     const handleDeleteEvent = async (eventId) => {
-        if (window.confirm('Are you sure you want to delete this event?')) {
-            try {
-                await deleteEvent(eventId);
-            } catch (err) {
-                alert('Failed to delete event');
-            }
+        console.log('=== handleDeleteEvent called ===');
+        console.log('Event ID to delete:', eventId);
+        console.log('Event ID type:', typeof eventId);
+
+        if (!eventId) {
+            console.error('No event ID provided for deletion');
+            alert('Error: No event ID');
+            return;
+        }
+
+        // Temporarily removing confirmation for testing
+        try {
+            console.log('Calling deleteEvent...');
+            await deleteEvent(eventId);
+            console.log('deleteEvent completed successfully');
+            // Force refresh
+            await fetchAllEvents();
+            await fetchTodayEvents();
+            await fetchUpcomingEvents();
+            console.log('All events refreshed');
+        } catch (err) {
+            console.error('Delete error:', err);
+            alert('Failed to delete event: ' + (err.message || 'Unknown error'));
         }
     };
 

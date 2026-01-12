@@ -36,7 +36,7 @@
 .sidebar-header .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-family);
 }
 
 .create-btn {
@@ -60,7 +60,7 @@
     letter-spacing: 0.5px;
     color: var(--text-muted);
     margin-bottom: var(--spacing-md);
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-family);
 }
 
 /* Main Content */
@@ -84,7 +84,7 @@
 .header-left h1 {
     font-size: 1.5rem;
     font-weight: 600;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-family);
 }
 
 .header-right {
@@ -110,7 +110,7 @@
     cursor: pointer;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
-    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-family);
 }
 
 .toggle-btn:hover {
